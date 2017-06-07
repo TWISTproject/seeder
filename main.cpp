@@ -401,13 +401,14 @@ extern "C" void* ThreadStats(void*) {
   return nullptr;
 }
 
-static const string mainnet_seeds[] = {"seed.dev0tion.com", ""};
-static const string testnet_seeds[] = {""};
+static const string mainnet_seeds[] = {"seednode1.stratisplatform.com", "seednode2.stratisplatform.com", "seednode3.cloudstratis.com"};
+static const string testnet_seeds[] = {"testnode1.stratisplatform.com"};
 static const string *seeds = mainnet_seeds;
 
 extern "C" void* ThreadSeeder(void*) {
   if (!fTestNet){
-    db.Add(CService("seed.stratisplatform.com", 16178), true);
+    db.Add(CService("vps1.stratisplatform.com", 16178), true);
+    db.Add(CService("vps2.stratisplatform.com", 16178), true);
   }
   do {
     for (int i=0; seeds[i] != ""; i++) {
@@ -459,10 +460,10 @@ int main(int argc, char **argv) {
   bool fDNS = true;
   if (opts.fUseTestNet) {
       printf("Using testnet.\n");
-      pchMessageStart[0] = 0x70;
-      pchMessageStart[1] = 0x35;
-      pchMessageStart[2] = 0x22;
-      pchMessageStart[3] = 0x05;
+      pchMessageStart[0] = 0xfa;
+      pchMessageStart[1] = 0xbf;
+      pchMessageStart[2] = 0xb5;
+      pchMessageStart[3] = 0xda;
       seeds = testnet_seeds;
       fTestNet = true;
   }
