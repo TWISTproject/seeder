@@ -401,8 +401,8 @@ extern "C" void* ThreadStats(void*) {
   return nullptr;
 }
 
-static const string mainnet_seeds[] = {"seednode1.stratisplatform.com", "seednode2.cloudstratis.com", "seednode3.stratisplatform.com", "seednode4.cloudstratis.com"};
-static const string testnet_seeds[] = {"testnode1.stratisplatform.com"};
+static const string mainnet_seeds[] = {"seednode1.stratisplatform.com", "seednode2.cloudstratis.com", "seednode3.stratisplatform.com", "seednode4.cloudstratis.com", ""};
+static const string testnet_seeds[] = {"testnode1.stratisplatform.com", ""};
 static const string *seeds = mainnet_seeds;
 
 extern "C" void* ThreadSeeder(void*) {
