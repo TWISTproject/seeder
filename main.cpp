@@ -402,7 +402,7 @@ extern "C" void* ThreadStats(void*) {
 }
 
 static const string mainnet_seeds[] = {"seednode1.stratisplatform.com", "seednode2.stratis.cloud", "seednode3.stratisplatform.com", "seednode4.stratis.cloud", ""};
-static const string testnet_seeds[] = {"testnode1.stratisplatform.com", ""};
+static const string testnet_seeds[] = {"testnode1.stratisplatform.com", "testnode2.stratis.cloud", ""};
 static const string *seeds = mainnet_seeds;
 
 extern "C" void* ThreadSeeder(void*) {
@@ -412,7 +412,8 @@ extern "C" void* ThreadSeeder(void*) {
     db.Add(CService("vps3.stratisplatform.com", 16178), true);
     db.Add(CService("vps4.stratis.cloud", 16178), true);
   } else {
-    db.Add(CService("vpstestnet1.stratisplatform.com", 16178), true);
+    db.Add(CService("vpstestnet1.stratisplatform.com", 26178), true);
+    db.Add(CService("vpstestnet2.stratis.cloud", 26178), true);
   }
   do {
     for (int i=0; seeds[i] != ""; i++) {
