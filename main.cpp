@@ -411,6 +411,8 @@ extern "C" void* ThreadSeeder(void*) {
     db.Add(CService("vps2.stratis.cloud", 16178), true);
     db.Add(CService("vps3.stratisplatform.com", 16178), true);
     db.Add(CService("vps4.stratis.cloud", 16178), true);
+  } else {
+    db.Add(CService("vpstestnet1.stratisplatform.com", 16178), true);
   }
   do {
     for (int i=0; seeds[i] != ""; i++) {
@@ -462,10 +464,10 @@ int main(int argc, char **argv) {
   bool fDNS = true;
   if (opts.fUseTestNet) {
       printf("Using testnet.\n");
-      pchMessageStart[0] = 0xfa;
-      pchMessageStart[1] = 0xbf;
-      pchMessageStart[2] = 0xb5;
-      pchMessageStart[3] = 0xda;
+      pchMessageStart[0] = 0x71;
+      pchMessageStart[1] = 0x31;
+      pchMessageStart[2] = 0x21;
+      pchMessageStart[3] = 0x11;
       seeds = testnet_seeds;
       fTestNet = true;
   }
