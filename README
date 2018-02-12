@@ -1,7 +1,7 @@
-stratis-seeder
+twist-seeder
 ==============
 
-Stratis-seeder is a crawler for the Stratis network, which exposes a list
+TWIST-seeder is a crawler for the TWIST network, which exposes a list
 of reliable nodes via a built-in DNS server.
 
 Features:

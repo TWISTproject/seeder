@@ -37,7 +37,7 @@ public:
   CDnsSeedOpts() : nThreads(96), nDnsThreads(4), nPort(53), mbox(NULL), ns(NULL), host(NULL), tor(NULL), fDaemon(false), fUseTestNet(false), fWipeBan(false), fWipeIgnore(false) {}
 
   void ParseCommandLine(int argc, char **argv) {
-    static const char *help = "Stratis-seeder\n"
+    static const char *help = "TWIST-seeder\n"
                               "Usage: %s -h <host> -n <ns> [-m <mbox>] [-t <threads>] [-p <port>]\n"
                               "\n"
                               "Options:\n"
@@ -401,19 +401,19 @@ extern "C" void* ThreadStats(void*) {
   return nullptr;
 }
 
-static const string mainnet_seeds[] = {"seednode1.stratisplatform.com", "seednode2.stratis.cloud", "seednode3.stratisplatform.com", "seednode4.stratis.cloud", ""};
-static const string testnet_seeds[] = {"testnode1.stratisplatform.com", "testnode2.stratis.cloud", ""};
+static const string mainnet_seeds[] = {"seednode1.twistplatform.com", "seednode2.twist.cloud", "seednode3.twistplatform.com", "seednode4.twist.cloud", ""};
+static const string testnet_seeds[] = {"testnode1.twistplatform.com", "testnode2.twist.cloud", ""};
 static const string *seeds = mainnet_seeds;
 
 extern "C" void* ThreadSeeder(void*) {
   if (!fTestNet){
-    db.Add(CService("vps1.stratisplatform.com", 16178), true);
-    db.Add(CService("vps2.stratis.cloud", 16178), true);
-    db.Add(CService("vps3.stratisplatform.com", 16178), true);
-    db.Add(CService("vps4.stratis.cloud", 16178), true);
+    db.Add(CService("vps1.twistplatform.com", 16178), true);
+    db.Add(CService("vps2.twist.cloud", 16178), true);
+    db.Add(CService("vps3.twistplatform.com", 16178), true);
+    db.Add(CService("vps4.twist.cloud", 16178), true);
   } else {
-    db.Add(CService("vpstestnet1.stratisplatform.com", 26178), true);
-    db.Add(CService("vpstestnet2.stratis.cloud", 26178), true);
+    db.Add(CService("vpstestnet1.twistplatform.com", 26178), true);
+    db.Add(CService("vpstestnet2.twist.cloud", 26178), true);
   }
   do {
     for (int i=0; seeds[i] != ""; i++) {
